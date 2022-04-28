@@ -1,0 +1,318 @@
+@import "./variaveis";
+@import "./mixins";
+
+body {
+    background-color: $color-background;
+    margin: 0px;
+    padding: 0px;
+    font-family: fontCarol;
+
+    h2 {
+        width: auto;
+        @include flexCenter();
+        font-size: 35px;
+    }
+
+    hr {
+        width: 75vw;
+        @include flexCenter();
+        border: 0.5px ridge rgb(129, 117, 89);
+    }
+
+    .intro {
+        @include flexCenter(column);
+        height: 93vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-size: 50px;
+        background-image: url("/imgs/fundo_bolos.jpg");
+        animation: surgir 3s;
+    }
+
+    .sobre {
+        margin: 0px;
+        max-height: 93vh;
+
+        p {
+            text-align: justify;
+            margin: 0px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        animation: surgir 3s;
+    }
+
+    .amostra {
+        max-height: 93vh;
+        animation: surgir 3s;
+
+        .imgsAmostra {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: flex-start;
+
+            img {
+                margin: 5px;
+                width: 25vw;
+                height: 15vw;
+                border-radius: 20px;
+                -webkit-box-shadow: 15px 15px 14px rgba(2, 2, 2, 0.45);
+                transition: transform .1s;
+            }
+
+            img:hover {
+                transform: scale(1.25);
+            }
+        }
+    }
+
+    .contatos {
+        @include flexCenter(column);
+        max-height: 93vh;
+        font-size: 15px;
+        animation: surgir 3s;
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .encomendar {
+        max-height: 100vh;
+        max-width: 100vw;
+        animation: surgir 3s;
+
+        .bolo {
+            @include flexCenter(column);
+            width: 50vw;
+
+            svg {
+                width: 30vw;
+                height: 30vw;
+            }
+        }
+
+        .divStyleMass {
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+
+        .divStyleCobe {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        ;
+
+        .divStyleRech1 {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        ;
+
+        .divStyleRech2 {
+            position: absolute;
+            top: -10%;
+            left: 0px;
+        }
+
+        ;
+
+        .divStyleRech3 {
+            position: absolute;
+            top: -5%;
+            left: 0px;
+        }
+
+        ;
+
+        .statsBolo {
+            margin: 2vh;
+            float: left;
+            width: 25vh;
+            max-height: 93vh;
+
+            h3 {
+                margin-top: 4vh;
+                margin-bottom: 4vh;
+                font-size: 25px;
+            }
+
+            select {
+                border-radius: 10px;
+                background-color: white;
+                border-color: transparent;
+
+                option {
+                    border-radius: 10px;
+                    background-color: white;
+                    border-color: transparent;
+
+                }
+            }
+
+            .botaoVisualizar {
+                margin-top: 5vh;
+                margin-bottom: 5vh;
+                border-radius: 5px;
+                background-color: white;
+                border-color: transparent;
+            }
+
+            .cancelar:hover,
+            .cancelar:visited,
+            .cancelar:active,
+            .cancelar {
+                font-size: 3vh;
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+
+    .Menu {
+        height: 7vh;
+        animation: menu_surgir 1s;
+        @include flexCenter(row);
+
+        button {
+            width: 15vw;
+            background-color: darken($color: $color-background, $amount: 5);
+            border-radius: 10px;
+            border-color: transparent;
+            font-family: fontCarol;
+            height: 5vh;
+            margin: 5px;
+        }
+    }
+
+    .IconeMenu {
+        display: none;
+        height: 7vh;
+        animation: menu_surgir 1s;
+
+        img {
+            width: 7vh;
+            border-radius: 2.5px;
+            height: 6vh;
+            margin: 5px;
+        }
+
+        .iconesMenuMobile {
+            display: none;
+            margin-top: 7vh;
+            position: absolute;
+            background-color: transparent;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+
+            button {
+                width: 100%;
+                color: black;
+                background-color: darken($color: $color-background, $amount: 5);
+                border-radius: 10px;
+                border-color: darken($color: $color-background, $amount: 10);
+                padding: 12px 16px;
+                display: block;
+                font-family: fontCarol;
+                font-size: 20px;
+            }
+        }
+
+    }
+
+    a:visited,
+    a:active,
+    a:hover,
+    a {
+        text-decoration: none;
+    }
+
+    .IconeMenu:hover {
+        .iconesMenuMobile {
+            display: block;
+            text-decoration: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .intro {
+            font-size: 30px;
+        }
+
+        .amostra {
+            .imgsAmostra {
+                img {
+                    width: 80vw;
+                    height: 40vw;
+                }
+            }
+        }
+
+        .sobre {
+            p {
+                font-size: 20px;
+            }
+        }
+
+        .contatos {
+            font-size: 15px;
+        }
+
+        .encomendar {
+            .bolo {
+                margin-left: 5vh;
+                @include flexCenter(column);
+                width: 50vw;
+
+                svg {
+                    width: 100vw;
+                    height: 100vw;
+                }
+            }
+        }
+
+        .Menu {
+            display: none;
+        }
+
+        .IconeMenu {
+            display: flex;
+        }
+    }
+
+}
+
+@font-face {
+    font-family: fontCarol;
+    src: url("./DancingScript-VariableFont_wght.ttf");
+}
+
+@keyframes surgir {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes menu_surgir {
+    0% {
+        transform: translateY(-50px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
